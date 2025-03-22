@@ -1,4 +1,5 @@
 *
+!parse-raylib.bqn
 !.gitignore
 !raylib.bqn
 !README.md
