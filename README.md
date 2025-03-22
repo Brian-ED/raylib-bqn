@@ -1,7 +1,7 @@
 # raylib-bqn, a raylib binding for BQN
 raylib-bqn is a [binding](https://en.wikipedia.org/wiki/Language_binding) to [raylib](https://github.com/raysan5/raylib), meaning all values and functions defined in raylib are exposed to BQN.
 If you need documentation on how to use the functions in raylib-bqn, look in [raylib](https://github.com/raysan5/raylib).
-One exception to the raylib documentation is that for BQN I would recommend users to never use relative paths. This is because paths are always relative to raylib.bqn.
+An exception to the raylib documentation is that I would recommend to never use relative paths. This is because paths are always relative to raylib.bqn.
 
 ## Using in a bqn script
 Simply [import](https://mlochbaum.github.io/BQN/spec/system.html#scripts) `raylib.bqn`, with a left argument of the path to the raylib binary.
