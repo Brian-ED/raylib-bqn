@@ -23,7 +23,7 @@ macrosResolved ← {𝕊:
 #         /¯¯¯¯filter bad funcs¯¯¯¯¯\ /¯¯¯¯Mash all parsed data together¯¯¯¯\
 ffiData ← (¬badFunctions∊˜⊑¨)⊸/⌾(5⊸⊑) ∾¨´prefixes ParseHeader¨ macrosResolved
 #                   /¯¯¯¯¯¯¯¯¯¯Filter dupe names¯¯¯¯¯¯¯¯¯¯\ /¯Add back the removed defines
-ffi ← renames ToFFI (∊⊑¨)⊸/⌾⊑ (∊⊑¨)⊸/⌾(1⊸⊑) (∊1⊸⊑¨)⊸/⌾(2⊸⊑) (Defines⟨⟩⁼)⌾⊑ a
+ffi ← renames ToFFI (∊⊑¨)⊸/⌾⊑ (∊⊑¨)⊸/⌾(1⊸⊑) (∊1⊸⊑¨)⊸/⌾(2⊸⊑) (Defines⟨⟩⁼)⌾⊑ ffiData
 
 outFile •FChars ffi
 •Out outFile∾" successfully generated"
