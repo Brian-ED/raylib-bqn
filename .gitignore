@@ -1,4 +1,6 @@
 *
+!examples
+!examples/simple.bqn
 !parse-raylib.bqn
 !.gitignore
 !raylib.bqn
