@@ -20,6 +20,7 @@ macrosResolved ← {𝕊:
   errMsg!¬err
   out
 }¨headerPaths
+
 #         /¯¯¯¯filter bad funcs¯¯¯¯¯\ /¯¯¯¯Mash all parsed data together¯¯¯¯\
 ffiData ← (¬badFunctions∊˜⊑¨)⊸/⌾(5⊸⊑) ∾¨´prefixes ParseHeader¨ macrosResolved
 #                   /¯¯¯¯¯¯¯¯¯¯Filter dupe names¯¯¯¯¯¯¯¯¯¯\ /¯Add back the removed defines
