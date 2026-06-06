@@ -4,7 +4,7 @@ headerPaths←("/usr/local/include/"⊣´•args)⊸∾¨"raylib.h"‿"rlgl.h"�
 badFunctions ← "rlEnableStatePointer"‿"rlDisableStatePointer"
 outFile ← "output-raylib.bqn"
 renames ← [
-  "RL_ZERO"‿"RLGL_VERSION" ‿    "_Bool"
+  "RL_ZERO"‿"RLGL_VERSION"     ‿"_Bool"
   "RLZERO" ‿"RLGLVersionString"‿"bool"
 ]
 prefixes ← 2‿1/⟨
@@ -16,7 +16,7 @@ prefixes ← 2‿1/⟨
 defines ← ∾´⊑¨prefixes ParseHeader¨ •FChars¨ headerPaths
 
 macrosResolved ← {𝕊:
-  err‿out‿errMsg←•SH"zig"‿"cc"‿"-fkeep-system-includes"‿"-E"‿"-CC"‿𝕩
+  err‿out‿errMsg←•SH"cc"‿"-fkeep-system-includes"‿"-E"‿"-CC"‿𝕩
   errMsg!¬err
   out
 }¨headerPaths
