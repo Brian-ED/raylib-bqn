@@ -41,7 +41,7 @@ str  ⇐ "*i8:c8"
 uStr ⇐ "*u8:c8"
 ptr  ⇐ "*"
 
-pathToBinary ⇐ ⊑"raylib-bqn: No path to raylib was given (e.g. ⟨""./libraylib.so""⟩ •Import ""./raylib-bqn/raylib.bqn"")"⊸!⟜≠⊸⊢•args⍟(0=≠)⟨
+pathToBinary ⇐ ⊑("raylib-bqn: No path to raylib was given (e.g. ⟨""./libraylib.so""⟩ •Import ""./raylib-bqn/raylib.bqn"")"!0≠≠)⊸⊢•args∾⟨
   #INSERT-CUSTOM-RAYLIB-PATH-HERE
 ⟩
 r ⇐ 0 MakeImporter pathToBinary

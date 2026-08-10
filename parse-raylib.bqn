@@ -12,7 +12,7 @@ prefixes ← 2‿1/⟨
   "inline /* Functions may be inlined or external definition used*/"
 ⟩
 resolver←1↓"
-⊑""raylib-bqn: No path to raylib was given (e.g. ⟨""""./libraylib.so""""⟩ •Import """"./raylib-bqn/raylib.bqn"""")""⊸!⟜≠⊸⊢•args⍟(0=≠)⟨
+⊑(""raylib-bqn: No path to raylib was given (e.g. ⟨""""./libraylib.so""""⟩ •Import """"./raylib-bqn/raylib.bqn"""")""!0≠≠)⊸⊢•args∾⟨
   #INSERT-CUSTOM-RAYLIB-PATH-"∾"NOT"⊢"HERE
 ⟩"
 
