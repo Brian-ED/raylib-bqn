@@ -2,7 +2,7 @@
 ToFFI‿ParseHeader‿SetPathResolver ← •Import "../c-header-to-bqn-ffi/parse.bqn"
 headerPaths←("/home/brian/Downloads/raylib-6.0_linux_amd64/include/"⊣´•args)⊸∾¨"raylib.h"‿"rlgl.h"‿"raymath.h"
 badFunctions ← "rlEnableStatePointer"‿"rlDisableStatePointer"
-outFile ← "output-raylib.bqn"
+outFile ← "raylib.bqn"
 renames ← [
   "RL_ZERO"‿"RLGL_VERSION"     ‿"_Bool"
   "RLZERO" ‿"RLGLVersionString"‿"bool"
