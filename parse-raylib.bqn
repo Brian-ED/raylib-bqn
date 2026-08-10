@@ -13,7 +13,7 @@ prefixes ← 2‿1/⟨
 ⟩
 resolver←1↓"
 ⊑""raylib-bqn: No path to raylib was given (e.g. ⟨""""./libraylib.so""""⟩ •Import """"./raylib-bqn/raylib.bqn"""")""⊸!⟜≠⊸⊢•args⍟(0=≠)⟨
-  #INSERT-CUSTOM-RAYLIB-PATH-HERE
+  #INSERT-CUSTOM-RAYLIB-PATH-"∾"NOT"⊢"HERE
 ⟩"
 
 # Parsing defines because they're removed in the later macro-resolution stage
