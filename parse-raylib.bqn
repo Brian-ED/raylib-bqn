@@ -1,6 +1,6 @@
 #!/usr/bin/env bqn
-⟨ToFFI⋄ParseHeader⟩ ← •Import "../c-header-to-bqn-ffi/parse.bqn"
-headerPaths←("/usr/local/include/"⊣´•args)⊸∾¨"raylib.h"‿"rlgl.h"‿"raymath.h"
+ToFFI‿ParseHeader‿SetPathResolver ← •Import "../c-header-to-bqn-ffi/parse.bqn"
+headerPaths←("/home/brian/Downloads/raylib-6.0_linux_amd64/include/"⊣´•args)⊸∾¨"raylib.h"‿"rlgl.h"‿"raymath.h"
 badFunctions ← "rlEnableStatePointer"‿"rlDisableStatePointer"
 outFile ← "output-raylib.bqn"
 renames ← [
@@ -11,6 +11,10 @@ prefixes ← 2‿1/⟨
   "/* Functions defined as 'extern' by default (implicit specifiers)*/"
   "inline /* Functions may be inlined or external definition used*/"
 ⟩
+resolver←1↓"
+⊑""raylib-bqn: No path to raylib was given (e.g. ⟨""""./libraylib.so""""⟩ •Import """"./raylib-bqn/raylib.bqn"""")""⊸!⟜≠⊸⊢•args⍟(0=≠)⟨
+  #INSERT-CUSTOM-RAYLIB-PATH-HERE
+⟩"
 
 # Parsing defines because they're removed in the later macro-resolution stage
 defines ← ∾´⊑¨prefixes ParseHeader¨ •FChars¨ headerPaths
@@ -26,5 +30,5 @@ ffiData ← (¬badFunctions∊˜⊑¨)⊸/⌾(5⊸⊑) ∾¨´prefixes ParseHead
 #                   /¯¯¯¯¯¯¯¯¯¯Filter dupe names¯¯¯¯¯¯¯¯¯¯\ /¯Add back the removed defines
 ffi ← renames ToFFI (∊⊑¨)⊸/⌾⊑ (∊⊑¨)⊸/⌾(1⊸⊑) (∊1⊸⊑¨)⊸/⌾(2⊸⊑) (Defines⟨⟩⁼)⌾⊑ ffiData
 
-outFile •FChars ffi
+outFile •FChars resolver SetPathResolver ffi
 •Out outFile∾" successfully generated"
